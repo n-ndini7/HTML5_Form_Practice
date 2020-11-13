@@ -33,7 +33,7 @@
         </div>
         <div>
             <label for="mobile">Mobile no. : </label>
-            <input type="mobile" id="mobile" name="mobile" placeholder="919999999999">
+            <input type="mobile" id="mobile" name="mobile" placeholder="91 9999999999">
             <error-output class="mobile-error" for="mobile"></error-output>
         </div>
         <div>
@@ -74,7 +74,7 @@
         const mobile = document.querySelector('#mobile');
         const mobError = document.querySelector('.mobile-error');
         mobile.addEventListener('input',function(){
-            let mobileRegex = RegExp('[91]{2}[7-9]{1}[0-9]{9}');
+            let mobileRegex = RegExp('^[91]{2}[- ]{1}[7-9]{1}[0-9]{9}$');
             if(mobileRegex.test(mobile.value))
             mobError.textContent="";
             else mobError.textContent="Invalid Mobile number";
