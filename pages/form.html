@@ -11,7 +11,8 @@
         <header class="headerContainer"><h1>HTML 5 Form Input Fields</h1></header>
         <div>
             <label for="text">Enter your Name: </label>
-            <input type="text" id="text" name="text">
+            <input type="text" id="text" name="text" placeholder="Default">
+            <error-output class="text-error" for="text"></error-output>
         </div>
         <div>
             <label for="pwd">Enter Password: </label>
@@ -52,6 +53,14 @@
         </div>
     </form>
     ><script>
+        const text = document.querySelector('#text');
+        const textError = document.querySelector('.text-error');
+        text.addEventListener('input', function(){
+            let nameRegex= RegExp('^[A-Z]{1}[a-z]{2,}$');
+            if(nameRegex.test(text.value))
+            textError.textContent="";
+            else textError.textContent="Name is Incorrect";
+        });
         const salary = document.querySelector('#salary');
         const output = document.querySelector('.salary-output');
         output.textContent = salary.value;
